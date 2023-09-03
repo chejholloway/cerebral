@@ -1,0 +1,241 @@
+<p>dashboard works!</p>
+
+<!-- Toolbar -->
+<mat-toolbar color="primary" class="header mat-elevation-z6">
+  <div fxLayout="row">
+    <button mat-icon-button aria-label="Example icon button with a home icon">
+      <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
+    </button>
+    <img class="dashboard-logo" src="../../../assets/img/logo-link-blanco.svg"
+      alt="Link" />
+  </div>
+  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="4px">
+    <button mat-icon-button [matMenuTriggerFor]="dropdownNotificacionsMenu"
+      aria-label="Example icon button with a menu icon">
+      <mat-icon matBadge="15" matBadgeColor="warn">notifications_none</mat-icon>
+    </button>
+    <mat-menu #dropdownNotificacionsMenu="matMenu">
+      <mat-selection-list #shoes [multiple]="false">
+        <mat-list-option>
+          <mat-icon mat-list-icon aria-hidden="true">email</mat-icon>
+          <div mat-line>Tienes 10 mensajes nuevos</div>
+          <div mat-line><span class="mat-caption">Hace 4 minutos</span></div>
+        </mat-list-option>
+        <mat-list-option>
+          <mat-icon mat-list-icon aria-hidden="true">note</mat-icon>
+          <div mat-line>2 tareas por completar en el día</div>
+          <div mat-line><span class="mat-caption">Hace 10 horas</span></div>
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-divider></mat-divider>
+      <button mat-menu-item fxLayout="row" fxLayoutAlign="center">
+        <strong>Ver todas las notificaciones</strong>
+      </button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="dropdownMessagesMenu"
+      aria-label="Example icon button with a heart icon">
+      <mat-icon matBadge="15" matBadgeColor="accent">email</mat-icon>
+    </button>
+    <mat-menu #dropdownMessagesMenu="matMenu">
+      <mat-selection-list #shoes [multiple]="false">
+        <mat-list-option>
+          <mat-icon mat-list-icon aria-hidden="true">email</mat-icon>
+          <div mat-line>Gilbert Avilez</div>
+          <div mat-line><span class="mat-caption">Hace 4 minutos</span></div>
+        </mat-list-option>
+        <mat-list-option>
+          <mat-icon mat-list-icon aria-hidden="true">email</mat-icon>
+          <div mat-line>Andrés Payares</div>
+          <div mat-line><span class="mat-caption">Hace 10 horas</span></div>
+        </mat-list-option>
+      </mat-selection-list>
+      <button mat-menu-item fxLayout="row" fxLayoutAlign="center">
+        <strong>Ver todos los mensajes</strong>
+      </button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="dropdownSessionMenu"
+      aria-label="Example icon-button with a menu" class="button-photo">
+      <img src="../../../assets/img/users/jpedrozo.jpg" alt="Javier Pedrozo"
+        class="button-photo-icon">
+    </button>
+    <mat-menu #dropdownSessionMenu="matMenu" class="session-dropdown-menu p-3">
+      <mat-list fxLayout="column wrap" fxLayoutAlign="center center" class="mb-6">
+        <div mat-line class="session-dropdown-profile-image">
+          <img mat-line src="../../../assets/img/users/jpedrozo.jpg"
+            alt="Javier Andres Pedrozo Payares" class="profile-image" />
+        </div>
+        <div mat-line class="mat-body-strong text-lg">Javier Andrés Pedrozo Payares</div>
+        <div mat-line><span class="mat-caption text-sm"><a
+              href="#"></a>pedrozopayares@users.noreply.github.com</span></div>
+        <div mat-line fxLayout="column wrap" fxLayoutAlign="center center" class="mt-6">
+          <button mat-raised-button>
+            <span>Administrar tu cuenta</span>
+          </button>
+        </div>
+      </mat-list>
+      <mat-divider></mat-divider>
+      <mat-selection-list #shoes [multiple]="false">
+        <mat-list-option>
+          <mat-icon mat-list-icon aria-hidden="true">file</mat-icon>
+          <div mat-line>Cámara de Comercio de La Guajira</div>
+          <div mat-line><span class="mat-caption">Coord. Sistemas</span></div>
+        </mat-list-option>
+        <mat-list-option>
+          <mat-icon mat-list-icon aria-hidden="true">note</mat-icon>
+          <div mat-line>RealPyme</div>
+          <div mat-line><span class="mat-caption">Analista de datos</span></div>
+        </mat-list-option>
+      </mat-selection-list>
+      <mat-divider></mat-divider>
+      <button mat-menu-item>
+        <mat-icon>logout</mat-icon>
+        <span>Cerrar sesión</span>
+      </button>
+    </mat-menu>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <!-- Sidenav -->
+  <mat-sidenav #sidenav [mode]="isBiggerScreen() ? 'over' : 'side'" [(opened)]="opened"
+    [fixedInViewport]="true" [fixedTopGap]>
+    <mat-list fxLayout="row wrap" fxLayoutAlign="start center" class="mt-2 mb-2">
+      <div fxFlex="33%">
+        <div mat-line class="sidenav-profile-image">
+          <img mat-line src="../../../assets/img/users/jpedrozo.jpg"
+            alt="Javier Andres Pedrozo Payares" class="profile-image" />
+        </div>
+      </div>
+      <div fxFlex="67%">
+        <div mat-line class="mat-body-strong text-lg">Javier Pedrozo</div>
+        <div mat-line><span class="mat-caption text-sm"><a href="#"></a>Coord.
+            Sistemas</span></div>
+      </div>
+    </mat-list>
+    <mat-nav-list>
+      <a mat-list-item>
+        <mat-icon>dashboard</mat-icon> Escritorio
+      </a>
+      <a mat-list-item>
+        <mat-icon>person</mat-icon> Perfil
+      </a>
+      <a mat-list-item>
+        <mat-icon>content_paste</mat-icon> Tablas
+      </a>
+      <a mat-list-item>
+        <mat-icon>library_books</mat-icon> Tipografía
+      </a>
+      <a mat-list-item>
+        <mat-icon>location_on</mat-icon> Mapas
+      </a>
+      <a mat-list-item>
+        <mat-icon>calendar_today</mat-icon> Calendario
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <!-- Main content -->
+  <mat-sidenav-content>
+    <!-- Applying the mat-tyography class adds styles for native elements. -->
+    <section class="mb-2">
+      <h1>Escritorio</h1>
+      <mat-divider></mat-divider>
+    </section>
+
+    <!-- Angular material cards -->
+    <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="15px" class="my-4">
+      <div fxFlex="100%">
+        <!-- Row    -->
+        <mat-card class="mat-elevation-z2">
+          <div class="p-8" fxLayoutGap="30px">
+            <div fxFlex="33%" class="number-panel-horizontal">
+              <!-- Column -->
+              <div fxFlex="30%" class="icon">
+                <span class="material-icons text-5xl">
+                  perm_identity
+                </span>
+              </div>
+              <div fxFlex="40%" class="title">
+                <span class="font-light text-2xl">
+                  Nuevos <br /> registros
+                </span>
+              </div>
+              <div fxFlex="30%" class="number">
+                <span class="text-3xl font-black">2</span>
+              </div>
+            </div>
+            <mat-divider [vertical]="true"></mat-divider>
+            <div fxFlex="33%" class="number-panel-horizontal">
+              <!-- Column -->
+              <div fxFlex="30%" class="icon">
+                <span class="material-icons">
+                  perm_identity
+                </span>
+              </div>
+              <div fxFlex="40%" class="title">
+                <h4 class="font-light text-5lg">
+                  Nuevos registros
+                </h4>
+              </div>
+              <div fxFlex="30%" class="number">
+                <h2 style="font-size: 40px;">2</h2>
+              </div>
+            </div>
+            <mat-divider [vertical]="true"></mat-divider>
+            <div fxFlex="33%" class="number-panel-horizontal">
+              <!-- Column -->
+              <div fxFlex="30%" class="icon">
+                <span class="material-icons">
+                  perm_identity
+                </span>
+              </div>
+              <div fxFlex="40%" class="title">
+                <h4 class="font-light text-5lg">
+                  Nuevos registros
+                </h4>
+              </div>
+              <div fxFlex="30%" class="number">
+                <h2 style="font-size: 40px;">2</h2>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+      </div> <!-- /Row    -->
+    </div>
+
+    <!-- Angular material cards -->
+    <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="15px" class="my-4">
+      <div fxFlex="24%">
+        <mat-card class="mat-elevation-z2">Simple card</mat-card>
+      </div>
+      <div fxFlex="49%">
+        <mat-card class="mat-elevation-z2">Simple card</mat-card>
+      </div>
+      <div fxFlex="24%">
+        <mat-card class="mat-elevation-z2">Simple card</mat-card>
+      </div>
+    </div>
+
+    <!-- Angular material cards -->
+    <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="15px" class="my-4">
+      <div fxFlex="100%">
+        <mat-card class="mat-elevation-z2">Simple card</mat-card>
+      </div>
+    </div>
+
+    <!-- Angular material cards -->
+    <div fxLayout="row wrap" fxLayoutAlign="start start" fxLayoutGap="15px" class="my-4">
+      <div fxFlex="32%">
+        <mat-card class="mat-elevation-z2">Simple card</mat-card>
+      </div>
+      <div fxFlex="32%">
+        <mat-card class="mat-elevation-z2">Simple card</mat-card>
+      </div>
+      <div fxFlex="32%">
+        <mat-card class="mat-elevation-z2">Simple card</mat-card>
+      </div>
+    </div>
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

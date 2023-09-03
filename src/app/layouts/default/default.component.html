@@ -1,0 +1,15 @@
+<mat-sidenav-container class="tp-container">
+  <mat-sidenav mode="side" opened>
+    <section class="tp-section">
+      <span>File</span>
+    </section>
+    <section class="tp-section">
+      <span>Edit</span>
+    </section>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-header (to)="sideBarToggler($event)"></app-header>
+    <h2>Main content</h2>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>
